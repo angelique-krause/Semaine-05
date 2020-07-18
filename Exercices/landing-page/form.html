@@ -8,26 +8,57 @@
   <title>
     FORM API method POST : récupérer des données du Base de Données API
   </title>
+  <link rel="stylesheet" href="grid.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <!--
-        v 2. Créez un formulaire dans votre index.html. Utilisez les balises "form", "label", "input", "button", passez comme ID "my-form" à votre balise form,
-        ensuite pour les attributs "id" de vos input il est OBLIGATOIRE d'utiliser les clés attendues par l'API. C'est à dire une clé "auteur" et une clé "comment". Un de vos deux input aura donc comme valeur à l'attribut "id": "auteur", et le second "id":"comment". Pour finir, donnez comme ID "submit-btn" à votre bouton. Attention pour le bouton, il faut le sortir du formulaire sinon il rafraichit automatiquement la page.
-      -->
-  <form action="" name="my-form" id="my-form">
+  <div class="wrap">
+    <header>
+      <div class="row">
+        <div class="col-12 col-md-4 col-lg-4">
+          <div class="o-header-logo">
+            <img src="images/Logo.png" alt="logo sound picto">
+          </div>
+        </div>
+        <div class="col-12 col-md-8 col-lg-8">
+          <nav class="o-header-nav">
+            <ul>
+              <li><a href="index.html">home</a></li>
+              <li><a href="#">discover</a></li>
+              <li class="is-active"><a href="form.html">comment</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main>
 
-    <label for="auteur" id="label-auteur"> Auteur : </label>
-    <input name="auteur" id="auteur" type="text"> <!--  id correspond à la clef-->
 
-    <label for="comment" id="label-comment"> Commentaire : </label>
-    <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
 
-  </form>
-  <button type="button" id="submit-btn">Envoyer</button>
-  <!-- reprendre l'id qu'on va UTILISER en JS  => document.getElementById("submit-btn") -->
-  <!-- balise fantôme -->
-  <div id="point-de-repere"></div>
+      <!--
+            v 2. Créez un formulaire dans votre index.html. Utilisez les balises "form", "label", "input", "button", passez comme ID "my-form" à votre balise form,
+            ensuite pour les attributs "id" de vos input il est OBLIGATOIRE d'utiliser les clés attendues par l'API. C'est à dire une clé "auteur" et une clé "comment". Un de vos deux input aura donc comme valeur à l'attribut "id": "auteur", et le second "id":"comment". Pour finir, donnez comme ID "submit-btn" à votre bouton. Attention pour le bouton, il faut le sortir du formulaire sinon il rafraichit automatiquement la page.
+          -->
+      <form action="" name="my-form" id="my-form">
+
+        <label for="auteur" id="label-auteur"> Auteur : </label>
+        <input name="auteur" id="auteur" type="text"> <!--  id correspond à la clef-->
+
+        <label for="comment" id="label-comment"> Commentaire : </label>
+        <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
+
+      </form>
+      <button type="button" id="submit-btn">Envoyer
+      </button>
+      <!-- reprendre l'id qu'on va UTILISER en JS  => document.getElementById("submit-btn") -->
+      <!-- balise fantôme -->
+      <div id="point-de-repere"></div>
+    </main>
+    <footer>
+
+    </footer>
+  </div>
 
 </body>
 <script src="script.js"></script>
