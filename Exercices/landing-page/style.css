@@ -1,9 +1,22 @@
 /* ----------------------
-/ Convention de nommage :
+/ Convention de nommage  html css :
+/
 / utilisation de la syntaxe abem montrée par Jeremy dit James  :-)
 / utilisation d'une grille inspirée de Bootstrap et prévision du responsif
-/ reset : uniquement sur ul
+/ utilisation des Flexbox
+/ reset : sur li et a
+/
  --------------------- */
+
+/* reset */
+li{
+  list-style-type: none;
+}
+li > a{
+  text-decoration: none;
+}
+
+/* Balises générales */
 *{
   box-sizing: border-box;
 }
@@ -13,9 +26,9 @@ html{
 body{
   background-color: rgb(47,48,56);
   color: whitesmoke;
-  font-family: Arial, sans-serif;
-  font-size: 1.4rem;
-  font-weight: 600;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 500;
   margin: 0;
   padding: 0;
 }
@@ -23,8 +36,7 @@ img{
   width: 100%;
   height: auto;
 }
-
-
+/* Balises sémantiques */
 
 header{
   margin-bottom: 2rem;
@@ -41,19 +53,23 @@ p{
 }
 nav{
   text-transform: capitalize;
-
   padding-bottom: 1rem;
-}
-
-li{
-  list-style-type: none;
 
 }
+
 li > a{
-  text-decoration: none;
+
   color: rgb(255,255,255);
 }
 
+/* Classes générales */
+
+.wrap{
+  max-width: 1130px;
+  width: 100%;
+  margin: 0 auto;
+}
+  /* les cercles qui sortent du FLUX */
 .circle{
   position: absolute;
   border-radius: 50%;
@@ -82,41 +98,45 @@ li > a{
   height: 23.5rem;
 }
 
+/* Classes générales (suite) */
+.o-header-logo{
 
-.wrap{
-  max-width: 1130px;
-  width: 100%;
-  margin: 0 auto;
+  display: inline-flex;
+  padding: 1rem 1rem 0 1rem;
+
 }
-
 .o-header-logo img{
   width: 20%;
   margin: 1rem;
   padding-top: 1rem;
 }
+.m-header-logo--title{
+  margin-top: 2.8rem;
+  margin-left: 1rem;
+  font-size: 1.8rem;
+}
 .o-header-nav ul{
   padding: 0;
   margin: 0;
+
 }
 .o-header-nav li{
   border-bottom: 1px solid rgb(192,192,192);
 }
-
-
 .o-header-nav a{
   padding: 0.25rem 1rem;
   display: block;
 }
-
 .o-header-nav .is-active a{
   color: rgb(188,58,128);
 
 }
-
 .o-header-nav a:hover{
   color: rgb(24,103,167);
 
 }
+
+/* Classes liées à la page Home */
 .m-home-main--img{
   width: 60%;
   margin-left: 1.2rem;
@@ -129,19 +149,36 @@ li > a{
 
 
 /* --------------------
-/* vue tablette et desktop*/
+/* Vue tablette et desktop
+/* ------------------------ */
 
 
 @media screen and (min-width: 640px) {
 
+  /* Classes générales */
+  .o-header-logo img{
+    width: 29%;
+  }
+  .o-header-nav{
+    margin-top: 1.7rem;
+  }
+  .o-header-nav ul{
+    display: flex;
+    justify-content: flex-end;
+
+  }
 
   .o-header-nav li{
-    border: 0;
-    display: inline-block;
+    border: 0; /* pour ne pas qu'ils soient soulignés
 
+   /* display: inline-block; */
+
+    padding-left: 1rem;
     margin-top: 2rem;
 
   }
+
+  /* Classes propres à la page Home */
   .m-home-main--img{
     width: 90%;
     margin-left: 6rem;
