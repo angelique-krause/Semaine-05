@@ -126,6 +126,7 @@ footer{
 }
 .o-header-nav{
   margin-top: 1rem;
+
 }
 .o-header-nav ul{
   padding: 0;
@@ -156,7 +157,7 @@ footer{
 .o-footer-social-media{
   margin: 2rem 2rem 1rem 1rem;
   padding-right: 1rem;
-  background-color: brown;
+
 }
 .m-footer-social-media--items{
 
@@ -165,25 +166,15 @@ footer{
   text-transform: capitalize;
   display: inline-block;
   width: 100%;
-  color: white;
+  color: rgb(255,255,255);
   text-decoration: none;
 }
 
 .m-footer-social-media--items i{
-  color: white;
+  color: rgb(255,255,255);
   margin-right: 0.6rem;
 }
-/*
-.m-footer-social-media p:before{
-  font-family: "Font Awesome 5 Free";
-  content: "\f099";
-  display: inline-block;
-  padding-right: 3px;
-  vertical-align: middle;
-  font-weight: 900;
-  color: white;
-}
-*/
+
 
 /* Classes liées à la page Home */
 .m-home-main--img{
@@ -195,6 +186,54 @@ footer{
   padding-left: 2rem;
 }
 
+/* Classes liées à la page FORM */
+.o-form-main--fun{
+
+}
+.o-form-main--fun h1{
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin-left: 1rem;
+  margin-top: 0;
+}
+.o-form-main--fun h1 span{
+  font-size: 4rem;
+  color: rgb(188,58,128);
+}
+
+.m-form-main--form{
+  background-color: rgb(32,32,39);
+
+  border-radius: 15%;
+  margin: 1rem 1rem 1rem 1.5rem;
+  padding: 2rem;
+
+
+}
+.m-form-main--form form > label, input, textarea{
+  display: block;
+  width: 100%;
+}
+.m-form-main--form label{
+  padding: 0.5rem 0;
+  margin-top: 1rem;
+}
+.m-form-main--form form > input, textarea{
+  border: 1px solid rgb(188,58,128);
+  border-radius: 5%;
+  background-color: rgb(32,32,39);
+}
+.m-form-main--form button{
+
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: 10%;
+  background-color: rgb(24,103,167);
+  margin-bottom: 1rem;
+}
 
 
 /* --------------------
