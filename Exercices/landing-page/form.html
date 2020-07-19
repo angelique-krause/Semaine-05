@@ -6,10 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
   <title>
-    FORM API method POST : récupérer des données du Base de Données API
+    FORM API method POST : récupérer des données d'une Base de Données API
   </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" />
   <link rel="stylesheet" href="grid.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" type="text/css">
+  <!-- <script src="https://kit.fontawesome.com/41baa78eff.js" crossorigin="anonymous"></script> -->
+
 </head>
 
 <body>
@@ -33,33 +36,75 @@
         </div>
       </div>
     </header>
+
     <main>
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-6">
+          <div class="o-main--fun">
+            <h1>Join the fun</h1>
+          </div>
+        </div>
 
+        <div class="col-12 col-md-6 col-lg-6>
+          <div class=" o-form-main--information">
+          <div class="row">
+            <div col-12 col-md-12 col-lg-12>
+              <div class="m-form-main--form">
 
+                <!--
+                    v 2. Pour créez un formulaire dans votre page index.html.
+                    - Utilisez les balises "form", "label", "input", "button".
+                    - Passez comme ID "my-form" à votre balise form,
+                    - Pour les attributs "id" de vos input(input + textarea), il est OBLIGATOIRE d'utiliser les CLES attendues par l'API.
+                    - C'est à dire une clé "auteur" et une clé "comment".
+                    Un de vos deux input aura donc comme valeur à l'attribut "id": "auteur", et le second aura comme valeur à l'attribut "id":"comment".
+                    - Pour finir, donnez comme id "submit-btn" à votre bouton.
+                    !!! Attention pour le bouton, il FAUT le sortir du formulaire
+                    SINON il rafraichit automatiquement la page.
+                  -->
 
-      <!--
-            v 2. Créez un formulaire dans votre index.html. Utilisez les balises "form", "label", "input", "button", passez comme ID "my-form" à votre balise form,
-            ensuite pour les attributs "id" de vos input il est OBLIGATOIRE d'utiliser les clés attendues par l'API. C'est à dire une clé "auteur" et une clé "comment". Un de vos deux input aura donc comme valeur à l'attribut "id": "auteur", et le second "id":"comment". Pour finir, donnez comme ID "submit-btn" à votre bouton. Attention pour le bouton, il faut le sortir du formulaire sinon il rafraichit automatiquement la page.
-          -->
-      <form action="" name="my-form" id="my-form">
+                <form action="" name="my-form" id="my-form">
+                  <label for="auteur" id="label-auteur"> Auteur : </label>
+                  <input name="auteur" id="auteur" type="text"> <!--  id correspond à la clef-->
+                  <label for="comment" id="label-comment"> Commentaire : </label>
+                  <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
+                </form>
 
-        <label for="auteur" id="label-auteur"> Auteur : </label>
-        <input name="auteur" id="auteur" type="text"> <!--  id correspond à la clef-->
+                <button type="button" id="submit-btn">Envoyer</button>
+              </div>
 
-        <label for="comment" id="label-comment"> Commentaire : </label>
-        <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
+              <!-- reprendre l'id qu'on va UTILISER en JS  => document.getElementById("submit-btn") -->
 
-      </form>
-      <button type="button" id="submit-btn">Envoyer
-      </button>
-      <!-- reprendre l'id qu'on va UTILISER en JS  => document.getElementById("submit-btn") -->
-      <!-- balise fantôme -->
-      <div id="point-de-repere"></div>
-    </main>
-    <footer>
-
-    </footer>
+              <!-- balise fantôme -->
+              <div id="point-de-repere"></div>
+            </div>
+          </div>
+        </div>
+      </div>
   </div>
+  </main>
+  </div>
+
+  <footer>
+    <div class="row">
+      <div class="col-6 col-md-8 col-lg-8">
+        <nav class="o-footer-nav">
+          <ul>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="col-6 col-md-4 col-lg-4">
+
+        <div class="o-footer-social-media">
+          <a class="m-footer-social-media--items" href="#"><i class="fab fa-twitter"></i>twitter</a>
+          <a class="m-footer-social-media--items" href="#"><i class="fab fa-facebook-f"></i>facebook</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
 
 </body>
 <script src="script.js"></script>

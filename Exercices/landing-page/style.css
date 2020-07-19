@@ -61,6 +61,15 @@ li > a{
 
   color: rgb(255,255,255);
 }
+footer{
+  height: 10rem;
+  background-color: rgb(32,32,39);
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  margin: 1rem 1rem 1rem 0;
+  padding-top: 1rem;
+}
 
 /* Classes générales */
 
@@ -115,6 +124,9 @@ li > a{
   margin-left: 1rem;
   font-size: 1.8rem;
 }
+.o-header-nav{
+  margin-top: 1rem;
+}
 .o-header-nav ul{
   padding: 0;
   margin: 0;
@@ -122,6 +134,7 @@ li > a{
 }
 .o-header-nav li{
   border-bottom: 1px solid rgb(192,192,192);
+  padding-bottom: 0.5rem;
 }
 .o-header-nav a{
   padding: 0.25rem 1rem;
@@ -135,6 +148,42 @@ li > a{
   color: rgb(24,103,167);
 
 }
+
+/* Footer */
+.o-footer-nav li{
+  padding-bottom: 1rem;
+}
+.o-footer-social-media{
+  margin: 2rem 2rem 1rem 1rem;
+  padding-right: 1rem;
+  background-color: brown;
+}
+.m-footer-social-media--items{
+
+  padding: 0 0 1rem 1rem;
+  margin-left: 1rem;
+  text-transform: capitalize;
+  display: inline-block;
+  width: 100%;
+  color: white;
+  text-decoration: none;
+}
+
+.m-footer-social-media--items i{
+  color: white;
+  margin-right: 0.6rem;
+}
+/*
+.m-footer-social-media p:before{
+  font-family: "Font Awesome 5 Free";
+  content: "\f099";
+  display: inline-block;
+  padding-right: 3px;
+  vertical-align: middle;
+  font-weight: 900;
+  color: white;
+}
+*/
 
 /* Classes liées à la page Home */
 .m-home-main--img{
@@ -156,6 +205,7 @@ li > a{
 @media screen and (min-width: 640px) {
 
   /* Classes générales */
+  /* header */
   .o-header-logo img{
     width: 29%;
   }
@@ -165,22 +215,30 @@ li > a{
   .o-header-nav ul{
     display: flex;
     justify-content: flex-end;
-
   }
-
   .o-header-nav li{
     border: 0; /* pour ne pas qu'ils soient soulignés
-
    /* display: inline-block; */
-
     padding-left: 1rem;
     margin-top: 2rem;
+  }
+  /* footer */
+  .o-footer-nav ul{
+    display: flex;
+  }
+  .o-footer-nav li{
+    padding-right: 2rem;
+  }
+  .o-footer-social-media{
+    display: inline-flex;
+    justify-content: space-around;
+    width: 100%;
 
   }
 
-  /* Classes propres à la page Home */
+    /* Classes propres à la page Home */
   .m-home-main--img{
-    width: 90%;
+    width: 92%;
     margin-left: 6rem;
   }
   .a-home-main--content--title{
@@ -192,6 +250,6 @@ li > a{
 }
 @media screen and (min-width: 960px){
   .m-home-main--img{
-    width: 67%;
+    width: 72%;
   }
 }
