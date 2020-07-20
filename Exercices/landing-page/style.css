@@ -7,6 +7,7 @@
 / reset : sur li et a
 /
  --------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 /* reset */
 li{
@@ -26,11 +27,13 @@ html{
 body{
   background-color: rgb(47,48,56);
   color: whitesmoke;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Popins', Helvetica, Arial, sans-serif;
   font-size: 1.6rem;
   font-weight: 500;
   margin: 0;
   padding: 0;
+  /* une façon de faire pour que des éléments comme les bubbles ne fassent en sortent que la page fassent des assenseur, cest de mettre un overflow : hidden */
+  overflow: auto;
 }
 img{
   width: 100%;
@@ -67,9 +70,13 @@ footer{
   position: absolute;
   width: 100%;
   bottom: 0;
+  left: 0;
   margin: 2rem 1rem 1rem 0;
   padding-top: 1rem;
   border-top: 1px solid transparent;
+  /* voir comment on va faire */
+  overflow: hidden;
+  max-width: 100vw;
 }
 
 /* Classes générales */
@@ -152,6 +159,7 @@ footer{
 }
 
 /* Footer */
+
 .o-footer-nav li{
   padding-bottom: 1rem;
 }
@@ -181,6 +189,7 @@ footer{
 .m-home-main--img{
   width: 55%;
   margin-left: 1.2rem;
+
 }
 .m-home-main--content{
   margin-top: 1rem;
@@ -191,12 +200,18 @@ footer{
 }
 
 /* Classes liées à la page FORM */
-.o-form-main--
+.o-form-header{
+  margin-bottom: 0;
+}
+.o-form-main--fun{
+  margin-top: 0;
+}
 .o-form-main--fun h1{
   font-size: 2.4rem;
   font-weight: 800;
   margin-left: 1rem;
   margin-top: 0;
+  padding-left: 1rem;
 }
 .o-form-main--fun h1 span{
   font-size: 4rem;
@@ -206,7 +221,7 @@ footer{
 .m-form-main--form{
   background-color: rgb(32,32,39);
 
-  border-radius: 15%;
+  border-radius: 15px;
   margin: 1rem 1rem 1.5rem 1.5rem;
   padding: 2rem;
 
@@ -222,7 +237,7 @@ footer{
 }
 .m-form-main--form form > input, textarea{
   border: 1px solid rgb(188,58,128);
-  border-radius: 5%;
+  border-radius: 5px;
   background-color: rgb(32,32,39);
   color: rgb(24,103,167);
   padding: 1rem;
@@ -234,7 +249,7 @@ footer{
   padding: 1rem;
   width: 100%;
   border: 1px solid transparent;
-  border-radius: 10%;
+  border-radius: 10px;
   background-color: rgb(24,103,167);
   margin-bottom: 1rem;
 }
@@ -290,8 +305,11 @@ footer{
 
     /* Classes propres à la page Home */
   .m-home-main--img{
-    width: 92%;
+    width: 47%;
     margin-left: 6rem;
+    /* comment faire pour que la dame reste en bas ? A VERIFIER */
+      position: absolute;
+      bottom: 0;
   }
   .a-home-main--content--title{
     font-size: 4rem;
@@ -302,6 +320,6 @@ footer{
 }
 @media screen and (min-width: 960px){
   .m-home-main--img{
-    width: 72%;
+    width: 33%;
   }
 }
