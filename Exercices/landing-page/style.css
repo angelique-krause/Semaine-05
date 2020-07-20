@@ -67,8 +67,9 @@ footer{
   position: absolute;
   width: 100%;
   bottom: 0;
-  margin: 1rem 1rem 1rem 0;
+  margin: 2rem 1rem 1rem 0;
   padding-top: 1rem;
+  border-top: 1px solid transparent;
 }
 
 /* Classes générales */
@@ -178,18 +179,19 @@ footer{
 
 /* Classes liées à la page Home */
 .m-home-main--img{
-  width: 60%;
+  width: 55%;
   margin-left: 1.2rem;
 }
 .m-home-main--content{
-  margin-top: 2rem;
+  margin-top: 1rem;
   padding-left: 2rem;
+}
+.m-home-main--content h1{
+  margin-top: 0;
 }
 
 /* Classes liées à la page FORM */
-.o-form-main--fun{
-
-}
+.o-form-main--
 .o-form-main--fun h1{
   font-size: 2.4rem;
   font-weight: 800;
@@ -205,7 +207,7 @@ footer{
   background-color: rgb(32,32,39);
 
   border-radius: 15%;
-  margin: 1rem 1rem 1rem 1.5rem;
+  margin: 1rem 1rem 1.5rem 1.5rem;
   padding: 2rem;
 
 
@@ -222,6 +224,8 @@ footer{
   border: 1px solid rgb(188,58,128);
   border-radius: 5%;
   background-color: rgb(32,32,39);
+  color: rgb(24,103,167);
+  padding: 1rem;
 }
 .m-form-main--form button{
 
@@ -233,6 +237,15 @@ footer{
   border-radius: 10%;
   background-color: rgb(24,103,167);
   margin-bottom: 1rem;
+}
+.div-auteur{
+  color: rgb(41, 28, 28);
+  text-transform: uppercase;
+  background-color: rgba(24,103,167,0.3);
+}
+.div-content{
+  color: burlywood;
+
 }
 
 

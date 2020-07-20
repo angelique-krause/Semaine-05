@@ -45,44 +45,44 @@
           </div>
         </div>
 
-        <div class="col-12 col-md-6 col-lg-6>
+        <div class="col-12 col-md-6 col-lg-6">
           <div class=" o-form-main--information">
-          <div class="row">
-            <div col-12 col-md-12 col-lg-12>
-              <div class="m-form-main--form">
+            <div class="row">
+              <div col-12 col-md-12 col-lg-12>
+                <div class="m-form-main--form">
 
-                <!--
-                    v 2. Pour créez un formulaire dans votre page index.html.
-                    - Utilisez les balises "form", "label", "input", "button".
-                    - Passez comme ID "my-form" à votre balise form,
-                    - Pour les attributs "id" de vos input(input + textarea), il est OBLIGATOIRE d'utiliser les CLES attendues par l'API.
-                    - C'est à dire une clé "auteur" et une clé "comment".
-                    Un de vos deux input aura donc comme valeur à l'attribut "id": "auteur", et le second aura comme valeur à l'attribut "id":"comment".
-                    - Pour finir, donnez comme id "submit-btn" à votre bouton.
-                    !!! Attention pour le bouton, il FAUT le sortir du formulaire
-                    SINON il rafraichit automatiquement la page.
-                  -->
+                  <!--
+                      v 2. Pour créez un formulaire dans votre page index.html.
+                      - Utilisez les balises "form", "label", "input", "button".
+                      - Passez comme ID "my-form" à votre balise form,
+                      - Pour les attributs "id" de vos input(input + textarea), il est OBLIGATOIRE d'utiliser les CLES attendues par l'API.
+                      - C'est à dire une clé "auteur" et une clé "comment".
+                      Un de vos deux input aura donc comme valeur à l'attribut "id": "auteur", et le second aura comme valeur à l'attribut "id":"comment".
+                      - Pour finir, donnez comme id "submit-btn" à votre bouton.
+                      !!! Attention pour le bouton, il FAUT le sortir du formulaire
+                      SINON il rafraichit automatiquement la page.
+                    -->
 
-                <form action="" name="my-form" id="my-form">
-                  <label for="auteur" id="label-auteur"> Auteur : </label>
-                  <input name="auteur" id="auteur" type="text"> <!--  id correspond à la clef-->
-                  <label for="comment" id="label-comment"> Commentaire : </label>
-                  <textarea name="comment" id="comment" cols="40" rows="7"></textarea>
-                </form>
+                  <form name="my-form" id="my-form">
+                    <label for="auteur" id="label-auteur"> Auteur : </label>
+                    <input name="auteur" id="auteur" type="text"> <!--  id correspond à la clef-->
+                    <label for="comment" id="label-comment"> Commentaire : </label>
+                    <textarea name="comment" id="comment" cols="40" rows="7"></textarea>
+                  </form>
 
-                <button type="button" id="submit-btn">Envoyer</button>
+                  <button type="button" id="submit-btn">Envoyer</button>
+                </div>
+
+                <!-- reprendre l'id qu'on va UTILISER en JS  => document.getElementById("submit-btn") -->
+
+                <!-- balise fantôme  dont il faut récupérer l'id pour le fichier .js -->
+                <div id="point-de-repere"></div>
               </div>
-
-              <!-- reprendre l'id qu'on va UTILISER en JS  => document.getElementById("submit-btn") -->
-
-              <!-- balise fantôme -->
-              <div id="point-de-repere"></div>
             </div>
           </div>
         </div>
       </div>
-  </div>
-  </main>
+    </main>
   </div>
 
   <footer>
@@ -108,6 +108,6 @@
 
 </body>
 <!-- ce qu'on a fait avec Julie mardi dernier - formScript.js pour que  ce soit LIE au dossier en cours, je transfert le contenu dans script.js et je vais le modifier ce lundi 20/07 -->
-<script src="script.js"></script>
+<script src="scripts.js"></script>
 
 </html>

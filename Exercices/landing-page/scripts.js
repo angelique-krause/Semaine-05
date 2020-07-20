@@ -25,8 +25,13 @@ document.getElementById("submit-btn").addEventListener("click", () => { /* () pe
     method: "POST",
     headers: myHeaders,
     body: JSON.stringify(body),
-  }).then(res =>
-    console.log("hello"));
+    // res (peut être) est mis à la place de response
+  }).then(res => {
+    // console.log("hello"));
+    // pour qu'il raffraichisse la page true
+    document.location.reload(true);
+  }
+  )
 
 })
 
@@ -45,3 +50,53 @@ document.getElementById("submit-btn").addEventListener("click", () => { /* () pe
 //9. Testez votre code, ouvrez votre index.html dans votre navigateur, ouvrez l'inspecteur d'élément, allez dans l'onglet "console". Maintenant, remplissez votre formulaire avec les valeurs demandées (l'auteur, et le commentaire). Clickez sur le bouton submit, une erreur est elle renvoyée? Si non allez dans l'onglet network et vérifier le statut de votre requête, si il est défini sur 200 c'est que votre requête a fonctionné!
 
 //10. Maintenant, créez une méthode fetch qui va aller récupérer toutes les données de l'API, comme la semaine dernière. Elle va vous retourner un tableau d'objets. Pour chaque élément de ce tableau, créez dynamiquement une div pour afficher le commentaire dans votre index.html
+
+// On va mintenant faire une méthode fetch en GET
+fetch("https://quotes-light-api.herokuapp.com/api/comments/", {
+  method: "GET"
+})
+  // response va être remplacé par le contenu de la requête
+  .then(res => {
+    // parser le format en JSON pour voir le body et les objects qui sont à l'intérieur
+    return res.json()
+  })
+  // chercher les infos dans API puis je transforme en format JSON
+  .then(res => {
+    let data = res;
+    // c'est un tableau d'objet : pour chaque élément il va générer 2 div
+    // je stoch ma réponse pour la mettre dans un tableau
+    data.forEach(element => {
+      // je tourne sur le tableau avec un forEach pour accéder à chaque objet
+      // on va créer les div qui vont recevoir le contenu
+      // je cré le contenu en div et en texte
+      let divAuteur = document.createElement('div');
+      let divComment = document.createElement('div');
+      // on va pointer dans l'objet pour récupérer le contenu - l'élément enfant c'est le contenu - child
+      let auteurContent = document.createTextNode(element.auteur);
+      let commentContent = document.createTextNode(element.comment);
+      // je crée le contenu en div et en texte
+      divAuteur.appendChild(auteurContent);
+      divComment.appendChild(commentContent);
+      //je gréffe ce contenu
+      let currentDiv = document.getElementById("point-de-repere");
+
+      // insertbefore 2 paramètres la div à insérer et en 2ième l'endroit où je veux l'insérer ici current div est le frère donc on écrit la hiérarchie par le nextElementSibling
+
+      document.body.insertBefore(divAuteur, currentDiv.nextElementSibling);
+      document.body.insertBefore(divComment, currentDiv.nextElementSibling);
+
+      // pour configurer un attribut (changement pour que les div soient jolies)
+      divAuteur.setAttribute("class", "div-auteur");
+      divComment.setAttribute("class", "div-comment");
+      // class pourrait être remplacée par d'autres attributs dans un autre contexte comme id ou src pour une image
+      // le deuxième paramètre est la valeur de cette attribut
+      // ajout d'un attribut pour pointer vers l'élément HTML
+      // je spécifie à quel endroit de mon HTML je veux insérer ce contenu
+
+      // donc en faisant cela j'ai manipulé le DOM car j'ai ajouter des div en html
+
+
+    });
+
+  })
+
