@@ -83,6 +83,7 @@ fetch("https://quotes-light-api.herokuapp.com/api/comments/", {
       // insertbefore 2 paramètres la div à insérer et en 2ième l'endroit où je veux l'insérer ici current div est le frère donc on écrit la hiérarchie par le nextElementSibling
 
       document.body.insertBefore(divAuteur, currentDiv.nextElementSibling);
+      //ajouter divComment
       document.body.insertBefore(divComment, currentDiv.nextElementSibling);
 
       // pour configurer un attribut (changement pour que les div soient jolies)
