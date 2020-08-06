@@ -40,3 +40,154 @@ Votre designer vous à envoyé le design en screenshot. A vous de le reproduire 
 ### comments.html
 
 ![comments](../../Img/comment.png)
+
+## Petit hack pour répéter son header/footer sur plusieurs pages
+
+### En Jquery
+
+Voici une autre solution en Jquery qui est plus simple à mettre en place que les iframes vue plus haut.
+
+Ajouter cette balise scripts à votre `<head>` pour inclure Jquerry à **chacune de vos pages** (index/discover/comments).
+
+```html
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+```
+
+Créez une page `script.js`et ajoutez ce bout de code.
+
+```js
+$(function(){
+  $("#header").load("header.html"); 
+  $("#footer").load("footer.html"); 
+});
+```
+
+:exclamation:**NPO**: ajouter la ligne qui permet d'inclure votre page script à **chacune de vos pages**.
+
+```html
+<script src="script.js"></script>
+```
+
+Ensuite il faut ajouter une `div` avec les ID définit plus haut à **chacune de vos pages** (index/discover/comments) pour définir l'endroit où le contenu de vos pages header et footer apparaîtront.
+
+```html
+<div id="header"></div>
+<div id="footer"></div>
+```
+
+Vous pouvez maintenant créer une page `header.html` et `footer.html` et elles seront incluses à l'endroit où vous avez placé votre `div`.
+
+#### Changer le style du menu
+
+Si vous souhaitez changer le style du lien dans le menu en fonction de la page sur laquelle vous êtes, il va falloir de nouveau "hacker" le système un tout petit peu.
+
+On va de nouveau utiliser un peu de JQuery pour parvenir à nos fins.
+
+Créez une nouvelle page `nav.js`et copiez le code suivant:
+
+```js
+let fileName = location.href.replace(/\.[^/.]+$/, "").split("/").slice(-1);
+$('nav a').each(function() {
+  if ($(this).attr('href') == location.href.split("/").slice(-1)){ $(this).addClass(fileName); }
+});
+```
+
+Ce code va sélectionner toutes nos balises `<a>` contenue dans notre balise `<nav>`. Donc ayez une navigation dans votre header qui fonctionne avec ce principe, ou alors changer la partie du script pour qu'elle corresponde à ce que vous avez vous. Ensuite le script va ajouter une classe égale au nom de la page actuelle qu'on visite au lien en cours.
+
+```html
+<nav>
+  <a href="discover.html">Discover</a>
+  <a href="comments.html">Comments</a>
+</nav>
+```
+
+Il suffit plus que de créer une classe CSS du nom de chacun de vos liens et le tour est joué.
+
+```css
+.discover{
+  background-color: red;
+}
+```
+
+:exclamation: N'oubliez pas de lier votre nouvelle page `nav.js` dans votre header!
+
+### Iframes (LEGACY)
+
+**update**: ceci n'est vraiment pas une bonne méthode, c'était pour ne pas utiliser de Jquerry ou de framework. Préférez vraiment utiliser la solution plus haut. Je laisse le bout de code à titre informatif.
+
+Alors, ceci est une méthode un peu laborieuse pour arriver à créer une page avec votre header/footer tout seul et pour ensuite le répéter sur toutes vos pages. Cela vous permettra de ne pas avoir à modifier toutes vos pages si vous avez besoin d'éffectuer un changement dans votre header/footer.
+
+Nous allons utiliser une `iframe`. C'est une sorte de fenêtre sur votre page qui affiche une autre page. 
+
+1. Créez votre page `index.html`
+2. Créez votre page `header.html`/`footer.html`
+3. Créez votre feuille de style `style.css`
+4. Créez votre feuille de style `header.css`/`footer.css`(optionnel)
+5. Placez le code suivant dans votre page `index.html` là où vous voulez que votre header/footer apparaisse: `<iframe src="header.html" seamless></iframe>`
+6. Placez le code suivant dans votre `style.css`: `iframe[seamless]{border: 0; width: 100%;}`
+7. Tadaamm! Vous avez votre header qui s'affiche.
+
+#### Petite précision
+
+Cette méthode est plus un hack qu'une bonne pratique. On n'a pas encore vu les outils nécessaire quant à la réalisation de composant réutilisable. Du coup, il faut un petit peu trafiquer le code pour arriver à nos fins.
+
+##### Le style de header/footer
+
+Même si votre header/footer s'affiche sur votre page index sur laquelle vous avez lié votre feuille de style, elle est tout de même considérer comme une autre page. N'oubliez donc pas  de lier votre feuille de style dans header/footer aussi. Pour ce faire, vous pouvez utiliser la fonction `@import`de CSS pour importer votre feuille de style dans la feuille de style de header/footer.
+
+```css
+@import "style.css";
+```
+
+##### Le background-color de body
+
+Il est également possible que votre header/footer s'affiche en prenant en compte le background-color définit dans votre feuille de style principale et du coup vous aurez un gros bloc de cette couleur qui se place par dessus certains éléments sur votre page. Pour ce faire précisez dans la feuille de style de header/footer que le background-color doit être transparent. `body{background-color: transparent;}`
+
+##### Les liens
+
+Si vous avez des liens dans votre header/footer, ceux-ci vont s'ouvrir dans votre iframe par défaut. Pour changer cela il faut ajouter un attribut `target:_top` à vos liens.
+
+#### Exemple d'utilisation
+
+`index.html`
+
+```html
+<head>
+  <title>Soundwave</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <iframe src="header.html" seamless></iframe>
+  <main>
+    <img src="./assets/Girl.png" alt="girl" class="girl">
+  </main>
+</body>
+```
+
+`header.html`
+
+```html
+<link rel="stylesheet" href="./css/header.css">
+<header>
+  <div class="title">
+    <a href="index.html" target="_top">
+      <img src="./assets/Logo.png" alt="logo">
+      <span>Soundwave</span>
+    </a>
+  </div>
+  <nav>
+    <a class="nav" href="discover.html" target="_top">Discover</a>
+    <a class="nav" href="comments.html" target="_top">Comments</a>
+  </nav>
+</header>
+```
+
+`header.css`
+
+```css
+@import "style.css";
+
+body{
+  background-color: transparent;
+}
+```
