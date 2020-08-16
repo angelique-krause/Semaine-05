@@ -60,12 +60,17 @@ fetch("https://quotes-light-api.herokuapp.com/api/comments/", {
     // parser le format en JSON pour voir le body et les objects qui sont à l'intérieur
     return res.json()
   })
+
   // chercher les infos dans API puis je transforme en format JSON
   .then(res => {
+
     let data = res;
-    // c'est un tableau d'objet : pour chaque élément il va générer 2 div
-    // je stoch ma réponse pour la mettre dans un tableau
-    data.forEach(element => {
+
+
+    /* -------------- */
+
+    data.slice([-10]).forEach(element => {
+
       // je tourne sur le tableau avec un forEach pour accéder à chaque objet
       // on va créer les div qui vont recevoir le contenu
       // je cré le contenu en div et en texte
@@ -99,5 +104,18 @@ fetch("https://quotes-light-api.herokuapp.com/api/comments/", {
 
     });
 
+    // c'est un tableau d'objet : pour chaque élément il va générer 2 div
+    // je stoch ma réponse pour la mettre dans un tableau
+
+
+    /* Je souhaite ne garder que LES DIX DERNIERS COMMENTAIRES  cf<;Julie */
+    /*let secondArray = new Array;
+    data.slice([-10]).forEach(element => {
+      secondArray.push(element);
+    })
+    */
+
   })
+
+
 

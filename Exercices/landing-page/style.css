@@ -1,12 +1,14 @@
 /* ----------------------
 / Convention de nommage  html css :
 /
-/ utilisation de la syntaxe abem montrée par Jeremy dit James  :-)
-/ utilisation d'une grille inspirée de Bootstrap et prévision du responsif
+/ utilisation d'une syntaxe librement inspirée de la méthode abem montrée par Jeremy dit James  :-)
+/ utilisation d'une grille inspirée de Bootstrap et prévision du responsif avec utilisation des médiaqueries
 / utilisation des Flexbox
 / reset : sur li et a
+/ import de la Google Font
 /
  --------------------- */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 /* reset */
@@ -67,7 +69,7 @@ li > a{
 footer{
   height: 10rem;
   background-color: rgb(32,32,39);
-  position: absolute;
+
   width: 100%;
   bottom: 0;
   left: 0;
@@ -185,11 +187,12 @@ footer{
 }
 
 
-/* Classes liées à la page Home */
+/*
+/ Classes liées à la page Home
+*/
 .m-home-main--img{
   width: 55%;
   margin-left: 1.2rem;
-
 }
 .m-home-main--content{
   margin-top: 1rem;
@@ -212,7 +215,9 @@ footer{
   align-items: center;
 }
 
-/* Classes liées à la page FORM */
+/*
+/ Classes liées à la page FORM
+ */
 .o-form-header{
   margin-bottom: 0;
 }
@@ -230,15 +235,11 @@ footer{
   font-size: 4rem;
   color: rgb(188,58,128);
 }
-
 .m-form-main--form {
   background-color: rgb(32,32,39);
-
   border-radius: 15px;
   margin: 1rem 1rem 1.5rem 1.5rem;
-  padding: 2rem;
-
-
+  padding: 1rem 2rem 1rem 2rem;
 }
 .m-form-main--form form > label, input, textarea{
   display: block;
@@ -246,7 +247,9 @@ footer{
 }
 .m-form-main--form label{
   padding: 0.5rem 0;
-  margin-top: 1rem;
+}
+#label-comment{
+  margin-top: 0.5rem;
 }
 .m-form-main--form form > input, textarea{
   border: 1px solid rgb(188,58,128);
@@ -256,7 +259,6 @@ footer{
   padding: 1rem;
 }
 .m-form-main--form button{
-
   display: inline-block;
   margin-top: 1.5rem;
   padding: 1rem;
@@ -266,6 +268,7 @@ footer{
   background-color: rgb(24,103,167);
   margin-bottom: 1rem;
 }
+/* pour  afficher le contenu du FORM de l'API */
 .div-auteur{
   color: rgb(41, 28, 28);
   text-transform: uppercase;
@@ -273,7 +276,32 @@ footer{
 }
 .div-content{
   color: burlywood;
+}
+/*
+/ Classes liées à la page DISCOVER
+*/
+.m-discoverMain__content{
+  border: 2px solid chartreuse;
+  margin-left: 1rem;
+}
+.a-discoverMain{
+  font-size: 4rem;
+}
+.a-discoverMain__contentImage img{
+  color: yellow;
+  background-color: orangered;
+}
 
+
+.m-discoverMain__folioFotos{
+ /* border: 1px solid chartreuse; */
+box-shadow: 1px 1px 3px 3px rgb(188,58,128, 0.6);
+  padding: 0.5rem;
+  margin-left: 6rem;
+  margin-right: 1rem;
+}
+.a-discoverMain__folioFotos{
+  width: 49.3%;
 }
 
 
@@ -318,7 +346,7 @@ footer{
 
     /* Classes propres à la page Home */
   .m-home-main--img{
-    width: 47%;
+    width: 44%;
     margin-left: 6rem;
     /* comment faire pour que la dame reste en bas ? A VERIFIER */
       position: absolute;
@@ -333,6 +361,9 @@ footer{
 }
 @media screen and (min-width: 960px){
   .m-home-main--img{
-    width: 33%;
+    width: 29%;
+  }
+  .m-form-main--form{
+    margin-left: 10rem;
   }
 }
