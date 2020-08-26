@@ -86,13 +86,12 @@ On va de nouveau utiliser un peu de JQuery pour parvenir à nos fins.
 Créez une nouvelle page `nav.js`et copiez le code suivant:
 
 ```js
-let fileName = location.href.replace(/\.[^/.]+$/, "").split("/").slice(-1);
 $('nav a').each(function() {
-  if ($(this).attr('href') == location.href.split("/").slice(-1)){ $(this).addClass(fileName); }
+  if ($(this).attr('href') == location.href.split("/").slice(-1)){ $(this).addClass('isActive'); }
 });
 ```
 
-Ce code va sélectionner toutes nos balises `<a>` contenue dans notre balise `<nav>`. Donc ayez une navigation dans votre header qui fonctionne avec ce principe, ou alors changer la partie du script pour qu'elle corresponde à ce que vous avez vous. Ensuite le script va ajouter une classe égale au nom de la page actuelle qu'on visite au lien en cours.
+Ce code va sélectionner toutes nos balises `<a>` contenue dans notre balise `<nav>`. Donc ayez une navigation dans votre header qui fonctionne avec ce principe, ou alors changer la partie du script pour qu'elle corresponde à ce que vous avez vous. Ensuite le script va comparer le nom du fichier dans l'attribut `href`et le comparer au nom du fichier dans l'adresse du navigateur (sans le .html), si il y a une correspondance il va ajouter une classe 'isActive` à ce lien.
 
 ```html
 <nav>
@@ -101,15 +100,36 @@ Ce code va sélectionner toutes nos balises `<a>` contenue dans notre balise `<n
 </nav>
 ```
 
-Il suffit plus que de créer une classe CSS du nom de chacun de vos liens et le tour est joué.
+Il reste à créer une classe CSS `isActive` avec les propriétés voulue et le tour est joué.
 
 ```css
-.discover{
+.isActive{
   background-color: red;
 }
 ```
 
-:exclamation: N'oubliez pas de lier votre nouvelle page `nav.js` dans votre header!
+:exclamation: N'oubliez pas de lier votre nouvelle page `nav.js` dans votre `header.html`!
+
+##### Variante bonus
+
+Si vous voulez une propriété différente pour chacun de vos liens, vous pouvez employez ce code Jquery.
+
+```js
+let fileName = location.href.replace(/\.[^/.]+$/, "").split("/").slice(-1);
+$('nav a').each(function() {
+  if ($(this).attr('href') == location.href.split("/").slice(-1)){ $(this).addClass(fileName); }
+});
+```
+
+Ensuite il faudra un sélecteur CSS pour chacun des noms de fichier que vous avez.
+
+```css
+.fileName{
+  font-size: 2em;
+}
+```
+
+La différence ici c'est qu'il va ajouter une classe avec le même nom que le fichier. Du coup vous pouvez séparer vos styles pour chacun des liens du menu.
 
 ### Iframes (LEGACY)
 
