@@ -281,15 +281,40 @@ footer{
 / Classes liées à la page DISCOVER
 */
 .m-discoverMain__content{
-  border: 2px solid chartreuse;
+
   margin-left: 1rem;
 }
 .a-discoverMain{
   font-size: 4rem;
+
 }
+.a-discoverMain__contentImage{
+
+  display: flex;
+  justify-content: flex-start;
+  margin-right: 2rem;
+}
+.a-discoverMain__contentImage.-Image{
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 0.7rem;
+  background-color: black;
+  padding: 1rem;
+
+}
+
 .a-discoverMain__contentImage img{
   color: yellow;
   background-color: orangered;
+  padding: 0.5rem;
+
+}
+.a-discoverMain__contentTxt{
+  padding-top: 1rem;
+  margin-top: 1rem;
+  border: 1px solid red;
 }
 
 
